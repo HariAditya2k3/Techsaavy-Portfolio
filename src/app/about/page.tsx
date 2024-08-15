@@ -1,0 +1,127 @@
+import Image from 'next/image';
+import '../globals.css';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
+
+// Hierarchical Members with Quotes
+const hierarchicalMembers = [
+  {
+    name: 'Dr. N. Ananthi',
+    position: 'Head of Department',
+    quote: 'TechSaavy is a beacon for young innovators, driving the future of technology.',
+    imageSrc: '/hod.png',
+  },
+  {
+    name: 'Dr. K. Sundar',
+    position: 'Staff Coordinator',
+    quote: 'Fostering collaboration and continuous learning at TechSaavy.',
+    imageSrc: '/sundar.png',
+  },
+  {
+    name: 'Mr. Sanjay R.',
+    position: 'Founder',
+    quote: 'Bridging the gap between theory and practice in the tech field.',
+    imageSrc: '/sanjay.png',
+  },
+  {
+    name: 'Mr. Hari Aditya K.',
+    position: 'Club Head',
+    quote: 'Leading TechSaavy to new heights with passion and innovation.',
+    imageSrc: '/hari.png',
+  },
+];
+
+// Office Bearers
+const officeBearers = [
+  {
+    name: 'Ms.Tiana Maria M P.',
+    position: 'Brand Manager',
+    imageSrc: '/tiana.png',
+  },
+  {
+    name: 'Mr.Arul Kumaran K V.',
+    position: 'Event Head ',
+    imageSrc: '/arul.png',
+  },
+  {
+    name: 'Ms.Sandra Infantia Rodrigo J.',
+    position: 'Event Head',
+    imageSrc: '/sandra.png',
+  },
+  {
+    name: 'Mr.Giridharan K.',
+    position: 'Design Head',
+    imageSrc: '/giri.png',
+  },
+  {
+    name: 'Ms.Divya Sree M.',
+    position: 'Digital Head',
+    imageSrc: '/divya.png',
+  },
+];
+
+export default function About() {
+  return (
+    <div className={`${inter.className} bg-blue-100 text-gray-800 hover:shadow-2xl hover:border-gray-800 transition-all duration-600 shadow-lg rounded-lg bg-[url('/homecover.gif')] bg-cover bg-center`}>
+      <div className="p-8">
+      <h1 className="text-4xl font-bold mb-4 text-gray-900">Who We Are ?</h1>
+        {/* Introductory Section */}
+        <div className="mb-8 p-6 shadow-lg rounded-lg border-0 bg-transparent hover:shadow-2xl transition-all duration-300">
+          
+          <p className="text-lg mb-4 text-gray-700 ">
+            Welcome to TechSaavy, the official student-led club of the Department of Information Technology at Easwari Engineering College, Ramapuram, Chennai. Founded in 2022 by Mr. Sanjay R., TechSaavy is dedicated to bridging the gap between theoretical knowledge and practical application in the tech field. Under the current leadership of Mr. Hari Aditya, our club continues to thrive and grow, organizing a variety of events such as webinars, workshops, and doubt-clearing sessions. Our mission is to create a vibrant community where technology enthusiasts can come together to learn, innovate, and excel.
+          </p>
+          <p className="text-lg mb-4 text-gray-700">
+            Managed by a passionate team of students and supported by our staff coordinator, Dr. K. Sundar, Assistant Professor of Information Technology, TechSaavy provides a collaborative platform for all members. Our department’s Head of Department, Dr. N. Ananthi, plays a pivotal role in guiding and providing the necessary resources to help the club flourish. Together, we are committed to empowering our members and fostering an environment where everyone has the opportunity to contribute and succeed.
+          </p>
+        </div>
+
+        {/* Hierarchical Members Carousel */}
+        <div className="relative p-6 mb-8 rounded-lg border-0 shadow-xl bg-transparentrounded-lg  bg-transparent hover:shadow-2xl transition-all duration-300">
+          <h2 className="text-3xl font-bold mb-8 text-gray-700">Meet Our Leaders</h2>
+          <div className="flex space-x-6 overflow-x-auto custom-scrollbar">
+            {hierarchicalMembers.map((member, index) => (
+              <div key={index} className="flex-none w-80 bg-transparent rounded-lg shadow-lg overflow-hidden border border-gray-600">
+                <div className="relative flex flex-col items-center p-6">
+                  <Image
+                    src={member.imageSrc}
+                    alt={member.name}
+                    width={150}
+                    height={150}
+                    className="rounded-full mb-4"
+                  />
+                  <h3 className="text-xl font-semibold text-gray-800">{member.name}</h3>
+                  <p className="text-gray-600 mb-2">{member.position}</p>
+                  <p className="text-gray-600 italic text-center">{`"${member.quote}"`}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Office Bearers Carousel */}
+        <div className="relative p-6 rounded-lg border-0 shadow-xl bg-transparent shadow-xl bg-transparent hover:shadow-2xl transition-all duration-300">
+          <h2 className="text-3xl font-bold mb-8 text-gray-900">Meet Our Team</h2>
+          <div className="flex space-x-6 overflow-x-auto custom-scrollbar">
+            {officeBearers.map((bearer, index) => (
+              <div key={index} className="flex-none w-90 bg-transparent rounded-lg shadow-lg overflow-hidden border border-gray-600">
+                <div className="relative flex flex-col items-center p-6 ">
+                  <Image
+                    src={bearer.imageSrc}
+                    alt={bearer.name}
+                    width={100}
+                    height={100}
+                    className="rounded-full mb-4"
+                  />
+                  <h3 className="text-xl font-semibold text-gray-800">{bearer.name}</h3>
+                  <p className="text-gray-600">{bearer.position}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
