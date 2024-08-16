@@ -18,7 +18,7 @@ export function FloatingNavDemo() {
       name: "Contact",
       link: "/contact",
       icon: (
-        <IconCalendarSearch className="h-4 w-4 text-neutral-500 dark:text-white" />
+        < IconBrandPnpm   className="h-4 w-4 text-neutral-500 dark:text-white" />
       ),
       },
     
@@ -26,7 +26,7 @@ export function FloatingNavDemo() {
         name: "Events",
         link: "/events",
         icon: (
-          <IconBrandPnpm className="h-4 w-4 text-neutral-500 dark:text-white" />
+          <IconCalendarSearch className="h-4 w-4 text-neutral-500 dark:text-white" />
         ),
         
     },
