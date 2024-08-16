@@ -7,16 +7,22 @@ const ContactPage = () => {
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 640);
     };
 
+    // Set initial value
+    handleResize();
+
+    // Add resize event listener
     window.addEventListener('resize', handleResize);
+
+    // Cleanup listener on component unmount
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, []); // Empty dependency array means this runs once on mount
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
