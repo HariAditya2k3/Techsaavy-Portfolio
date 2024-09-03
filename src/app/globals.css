@@ -43,3 +43,13 @@ body {
   scrollbar-width: thin; /* Thin scrollbar */
   scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.1); /* Thumb and track colors */
 }
+
+/* Add styles for the loading spinner if needed */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}

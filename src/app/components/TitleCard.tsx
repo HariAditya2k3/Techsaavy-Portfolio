@@ -9,7 +9,7 @@ const TitleCard = () => {
 
   // Function to detect window width and set isMobile state
   const handleResize = () => {
-    setIsMobile(window.innerWidth <= 640);
+    setIsMobile(window.innerWidth <= 720);
   };
 
   useEffect(() => {
@@ -41,7 +41,16 @@ const TitleCard = () => {
         <img 
           src={isMobile ? "/techsaavysm.svg" : "/techsaavy.svg"} // Conditionally load the logo based on screen size
           alt="Company Logo"
-          className={isMobile ? "w-24 h-auto" : "w-32 h-auto"} // Conditionally set size
+          className={isMobile ? "w-24 h-24" : "w-40 h-40"} // Increased size for desktop
+        />
+      </div>
+
+      {/* College Logo on the Top-Right */}
+      <div className="absolute top-4 right-4 flex items-center">
+        <img
+          src={isMobile ? "/cl-logo.png" : "/cl-logo.png"} // Conditionally load the college logo based on screen size
+          alt="College Logo"
+          className={isMobile ? "w-14.5 h-8" : "w-60 h-30"} // Further increased size in both width and height
         />
       </div>
 

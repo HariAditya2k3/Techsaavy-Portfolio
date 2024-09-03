@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <div
-      className={`${inter.className} text-gray-800 hover:shadow-2xl hover:border-gray-800 transition-all duration-600 shadow-lg rounded-lg`}
+      className={`${inter.className} text-black font-bold hover:shadow-2xl hover:border-gray-800 transition-all duration-600 shadow-lg rounded-lg`}
       style={{
         backgroundImage: isMobile ? "url('/homecoversm.gif')" : "url('/homecover.gif')", // Conditional background image
         backgroundSize: 'cover',
@@ -36,23 +36,23 @@ export default function Home() {
       }}
     >
       <div className="p-4 sm:p-6 lg:p-8">
-        <h1 className={`text-3xl font-bold mb-4 text-gray-900 ${isMobile ? 'text-2xl' : 'text-4xl'}`}>
+        <h1 className={`text-3xl font-bold mb-4 text-black ${isMobile ? 'text-2xl' : 'text-4xl'}`}>
           Welcome to Techsaavy
         </h1>
 
         {/* About Us Card */}
         <div className={`shadow-lg rounded-lg p-4 sm:p-6 mb-8 border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'h-auto' : 'h-auto'}`}>
-          <p className={`text-gray-700 mb-4 ${isMobile ? 'text-sm' : 'text-base'} overflow-visible`}>
+          <p className={`text-black mb-4 ${isMobile ? 'text-sm' : 'text-lg'} overflow-visible`}>
             At TechSaavy, our mission is to foster a community of passionate technology enthusiasts. We are committed to bridging the gap between theoretical knowledge and practical application by organizing a variety of engaging and educational events. Our club provides a platform for students to develop their technical skills, collaborate with peers, and stay abreast of the latest industry trends. From hands-on workshops to insightful seminars, we aim to inspire and equip the next generation of tech innovators.
           </p>
-          <p className={`text-gray-700 mb-4 ${isMobile ? 'text-sm' : 'text-base'} overflow-visible`}>
+          <p className={`text-black mb-4 ${isMobile ? 'text-sm' : 'text-lg'} overflow-visible`}>
             We believe in the power of collaboration and continuous learning. Our events are designed to encourage participation, creativity, and problem-solving. Whether you're looking to enhance your coding skills, explore emerging technologies, or connect with like-minded individuals, TechSaavy is the place for you. Join us to be part of a vibrant community that is shaping the future of technology.
           </p>
         </div>
 
         {/* Events Carousel */}
         <div className={`relative p-4 sm:p-6 mb-8 rounded-lg border-0 shadow-xl bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'h-auto' : 'h-auto'}`}>
-          <h2 className={`text-xl font-bold mb-4 text-gray-900 ${isMobile ? 'text-lg' : 'text-2xl'}`}>
+          <h2 className={`text-xl font-bold mb-4 text-black ${isMobile ? 'text-lg' : 'text-2xl'}`}>
             Events We Organize
           </h2>
           <div className="relative overflow-x-auto custom-scrollbar">
@@ -93,7 +93,7 @@ export default function Home() {
                     <img src={event.imgSrc} alt={event.title} className="w-full object-cover" />
                     <div className={`p-2 ${isMobile ? 'text-xs' : 'p-4'}`}>
                       <h3 className={`font-semibold mb-2 ${isMobile ? 'text-sm' : 'text-lg'} text-gray-700`}>{event.title}</h3>
-                      <p className={`text-gray-800 ${isMobile ? 'text-xs' : 'text-sm'}`}>{event.description}</p>
+                      <p className={`text-black ${isMobile ? 'text-xs' : 'text-sm'}`}>{event.description}</p>
                     </div>
                   </div>
                 ))}

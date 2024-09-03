@@ -37,7 +37,7 @@ const EventsPage = () => {
 
   return (
     <div
-      className={`text-gray-800 hover:shadow-2xl hover:border-gray-800 transition-all duration-600 shadow-lg rounded-lg ${isMobile ? "bg-[url('/homecoversm.gif')]" : "bg-[url('/homecover.gif')]"}`}
+      className={`text-black font-bold hover:shadow-2xl hover:border-gray-800 transition-all duration-600 shadow-lg rounded-lg ${isMobile ? "bg-[url('/homecoversm.gif')]" : "bg-[url('/homecover.gif')]"}`}
       style={{
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -50,7 +50,7 @@ const EventsPage = () => {
           <h1 className={`text-3xl sm:text-4xl font-bold mb-4 text-gray-900 ${isMobile ? 'text-2xl' : ''}`}>
             Events
           </h1>
-          <p className={`text-base sm:text-lg mb-6 text-gray-700 shadow-lg rounded-lg p-6 border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'text-sm' : ''}`}>
+          <p className={`text-base sm:text-lg mb-6 text-black shadow-lg rounded-lg p-6 border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'text-sm' : ''}`}>
             At TechSaavy, we host a variety of exciting and educational events that bring our community together. From high-energy hackathons to collaborative design sprints, our events are designed to foster learning, collaboration, and innovation.
             <br /><br />
             These events are an excellent opportunity for all of you to actively participate and benefit. Top performers are recognized based on their involvement, and internship referrals will be provided to standout participants.
@@ -60,27 +60,30 @@ const EventsPage = () => {
         </div>
 
         {/* Carousel Section */}
-        <div className={`relative p-6 mb-8 rounded-lg border-0 shadow-xl bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'w-full h-48' : 'w-full h-64'}`}>
-          <Carousel
-            showArrows={true}
-            showThumbs={false}
-            infiniteLoop={true}
-            onChange={(index) => setSelectedEvent(events[index])}
-            className={`rounded-lg shadow-lg ${isMobile ? 'h-48' : 'h-64'}`}
-          >
-            {events.map((event) => (
-              <div key={event.title} className="relative">
-                <Image
-                  src={event.imageSrc}
-                  alt={event.title}
-                  width={800}
-                  height={400}
-                  className={`w-full h-full object-cover rounded-lg ${isMobile ? 'h-48' : 'h-64'}`}
-                />
-              </div>
-            ))}
-          </Carousel>
-        </div>
+        
+        <Carousel
+  showArrows={true}
+  showThumbs={false}
+  infiniteLoop={true}
+  onChange={(index) => setSelectedEvent(events[index])}
+  className={`rounded-lg shadow-lg ${isMobile ? 'h-48' : 'h-64'}`}
+  autoPlay={true} // Enables auto-scrolling
+  interval={2000} // Set the interval to 2 seconds (2000 milliseconds)
+>
+  {events.map((event) => (
+    <div key={event.title} className="relative">
+      <Image
+        src={event.imageSrc}
+        alt={event.title}
+        width={800}
+        height={400}
+        className={`w-full h-full object-cover rounded-lg ${isMobile ? 'h-48' : 'h-64'}`}
+      />
+    </div>
+  ))}
+</Carousel>
+
+       
 
         {/* Event Details Section */}
         <div
