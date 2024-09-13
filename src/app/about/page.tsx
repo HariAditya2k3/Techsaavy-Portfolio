@@ -97,15 +97,38 @@ export default function About() {
         <h1 className={`text-3xl font-bold mb-4 text-gray-900 ${isMobile ? 'text-2xl' : 'text-4xl'}`}>
           Who We Are?
         </h1>
+
+        {/* Logos Section */}
+        <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} justify-center items-center gap-8 mb-8`}>
+          <div className="relative w-40 h-40 overflow-hidden rounded-lg transition-transform transform hover:scale-105 ">
+            <Image
+              src="/techsaavy.svg"
+              alt="TechSaavy Logo"
+              layout="fill"
+              objectFit="contain"
+              className="w-full h-full bg-transparent"
+            />
+          </div>
+          <div className="relative w-72 h-72 overflow-hidden rounded-lg transition-transform transform hover:scale-105 ">
+            <Image
+              src="/cl-logo.png"
+              alt="CL Logo"
+              layout="fill"
+              objectFit="contain"
+              className="w-full h-full bg-transparent"
+            />
+          </div>
+        </div>
+
         {/* Introductory Section */}
         <div className={`mb-8 p-6 shadow-lg rounded-lg border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'text-sm' : 'text-lg'}`}>
-        <p className={`mb-4 text-black ${isMobile ? 'text-xs' : 'text-lg'}`}>
-  Welcome to TechSaavy, the official student-led club of the{' '}
-  <span className="text-xl font-bold text-blue-800">
-    Department of Information Technology
-  </span>{' '}
-  at Easwari Engineering College, Ramapuram, Chennai. Founded in 2022 by Mr. Sanjay R., TechSaavy is dedicated to bridging the gap between theoretical knowledge and practical application in the tech field. Under the current leadership of Mr. Hari Aditya, our club continues to thrive and grow, organizing a variety of events such as webinars, workshops, and doubt-clearing sessions. Our mission is to create a vibrant community where technology enthusiasts can come together to learn, innovate, and excel.
-</p>
+          <p className={`mb-4 text-black ${isMobile ? 'text-xs' : 'text-lg'}`}>
+            Welcome to TechSaavy, the official student-led club of the{' '}
+            <span className="text-xl font-bold text-blue-800">
+              Department of Information Technology
+            </span>{' '}
+            at Easwari Engineering College, Ramapuram, Chennai. Founded in 2022 by Mr. Sanjay R., TechSaavy is dedicated to bridging the gap between theoretical knowledge and practical application in the tech field. Under the current leadership of Mr. Hari Aditya, our club continues to thrive and grow, organizing a variety of events such as webinars, workshops, and doubt-clearing sessions. Our mission is to create a vibrant community where technology enthusiasts can come together to learn, innovate, and excel.
+          </p>
 
           <p className={`mb-4 text-black ${isMobile ? 'text-xs' : 'text-lg'}`}>
             Managed by a passionate team of students and supported by our staff coordinator, Dr. K. Sundar, Assistant Professor of Information Technology, TechSaavy provides a collaborative platform for all members. Our department’s Head of Department, Dr. N. Ananthi, plays a pivotal role in guiding and providing the necessary resources to help the club flourish. Together, we are committed to empowering our members and fostering an environment where everyone has the opportunity to contribute and succeed.
@@ -121,7 +144,7 @@ export default function About() {
             {hierarchicalMembers.map((member, index) => (
               <div
                 key={index}
-                className={`bg-transparent rounded-lg shadow-lg overflow-hidden border border-gray-600 transition-transform transform hover:scale-105 hover:shadow-2xl`}
+                className={`bg-transparent rounded-lg shadow-lg overflow-hidden border-0 transition-transform transform hover:scale-105 hover:shadow-2xl`}
                 style={{ transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}
               >
                 <div className="relative flex flex-col items-center p-4">
@@ -150,7 +173,7 @@ export default function About() {
             {officeBearers.map((bearer, index) => (
               <div
                 key={index}
-                className={`bg-transparent rounded-lg shadow-lg overflow-hidden border border-gray-600 transition-transform transform hover:scale-105 hover:shadow-2xl`}
+                className={`bg-transparent rounded-lg shadow-lg overflow-hidden border-0 transition-transform transform hover:scale-105 hover:shadow-2xl`}
                 style={{ transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}
               >
                 <div className="relative flex flex-col items-center p-4">

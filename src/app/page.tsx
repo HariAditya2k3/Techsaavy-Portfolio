@@ -35,20 +35,32 @@ export default function Home() {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="p-4 sm:p-6 lg:p-8">
-        <h1 className={`text-3xl font-bold mb-4 text-black ${isMobile ? 'text-2xl' : 'text-4xl'}`}>
-          Welcome to Techsaavy
-        </h1>
+      <div className="p-4 sm:p-2 lg:p-8">
 
-        {/* About Us Card */}
-        <div className={`shadow-lg rounded-lg p-4 sm:p-6 mb-8 border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'h-auto' : 'h-auto'}`}>
-          <p className={`text-black mb-4 ${isMobile ? 'text-sm' : 'text-lg'} overflow-visible`}>
-            At TechSaavy, our mission is to foster a community of passionate technology enthusiasts. We are committed to bridging the gap between theoretical knowledge and practical application by organizing a variety of engaging and educational events. Our club provides a platform for students to develop their technical skills, collaborate with peers, and stay abreast of the latest industry trends. From hands-on workshops to insightful seminars, we aim to inspire and equip the next generation of tech innovators.
-          </p>
-          <p className={`text-black mb-4 ${isMobile ? 'text-sm' : 'text-lg'} overflow-visible`}>
-            We believe in the power of collaboration and continuous learning. Our events are designed to encourage participation, creativity, and problem-solving. Whether you're looking to enhance your coding skills, explore emerging technologies, or connect with like-minded individuals, TechSaavy is the place for you. Join us to be part of a vibrant community that is shaping the future of technology.
-          </p>
-        </div>
+
+
+      <div className="relative mb-8">
+  {/* Mobile and desktop view image */}
+  <img 
+    src={isMobile ? "/hc1.png" : "/hc1lg.png"} 
+    alt="Event Poster" 
+    className={`w-full ${isMobile ? 'h-auto' : 'h-96'} object-cover rounded-lg shadow-lg`} 
+  />
+  
+
+  
+  {/* Button for Challenge - Responsive and below the poster */}
+  <div className="flex justify-center mt-4">
+    <a href="https://www.hackerrank.com/weekly-code-challenge-second-years-week-4">
+      <button className="bg-blue-500 text-white px-4 py-2 text-base md:text-lg lg:text-xl rounded-lg hover:bg-blue-600 hover:shadow-lg focus:outline-none transition-all duration-300 ease-in-out">
+        Start Challenge
+      </button>
+    </a>
+  </div>
+</div>
+
+
+
 
         {/* Events Carousel */}
         <div className={`relative p-4 sm:p-6 mb-8 rounded-lg border-0 shadow-xl bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'h-auto' : 'h-auto'}`}>

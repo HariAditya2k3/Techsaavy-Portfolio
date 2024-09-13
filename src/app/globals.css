@@ -53,3 +53,44 @@ body {
 .animate-spin {
   animation: spin 1s linear infinite;
 }
+/* Base styles for NProgress */
+#nprogress {
+  pointer-events: none; /* Prevent interaction with the progress bar */
+}
+
+/* Customize the bar */
+#nprogress .bar {
+  background: #003392; /* A bold color for the progress bar */
+  height: 4px; /* Slightly thicker for better visibility */
+  border-radius: 2px; /* Rounded corners for a modern look */
+}
+
+/* Add an animation to the bar */
+#nprogress .bar {
+  transition: width 0.2s ease-in-out; /* Smooth transition for width changes */
+}
+
+/* Customize the spinner */
+#nprogress .spinner {
+  position: fixed; /* Fix spinner position */
+  top: 15px; /* Adjust top position */
+  right: 15px; /* Adjust right position */
+  width: 40px; /* Size of the spinner */
+  height: 40px; /* Size of the spinner */
+}
+
+/* Customize the spinner icon */
+#nprogress .spinner-icon {
+  border-top: 3px solid #0279ac; /* Match the spinner color with the bar */
+  border-right: 3px solid transparent; /* Transparent side */
+  border-radius: 50%; /* Circular spinner */
+  width: 100%; /* Full width of the spinner container */
+  height: 100%; /* Full height of the spinner container */
+  animation: spin 1s linear infinite; /* Spin animation */
+}
+
+/* Keyframes for spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

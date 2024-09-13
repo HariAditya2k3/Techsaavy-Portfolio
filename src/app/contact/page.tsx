@@ -60,17 +60,23 @@ const ContactPage = () => {
         <h1 className={`text-3xl font-bold mb-4 text-gray-900 ${isMobile ? 'text-2xl' : 'text-4xl'}`}>
           Share Your Thoughts
         </h1>
-        <div className={`shadow-lg rounded-lg p-6 mb-8 border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'text-sm' : 'text-lg'}`}>
-          <p className={`mb-4 ${isMobile ? 'text-sm' : 'text-lg'} text-black`}>
-            At TechSaavy, we understand that growth extends beyond just academics or club activities. This is your space—a private and confidential platform—where you can share anything that's on your mind. Whether it's related to your studies, personal life, career aspirations, or even thoughts about the club, this is the place to voice your thoughts. We're here to support you in every aspect of your journey, ensuring that your concerns and ideas are heard, valued, and addressed with the utmost care.
-          </p>
-          <p className={`mb-4 ${isMobile ? 'text-sm' : 'text-lg'} text-black`}>
-            This isn’t just a feedback form; it’s a personal improvement hub. If you’re navigating challenges in your academic journey, contemplating your career path, dealing with personal matters, or even if you simply want to discuss something on your mind, TechSaavy's private query container is here for you. No matter how big or small, your queries and thoughts are important to us, and we’re committed to helping you find clarity and direction in every area of your life.
-          </p>
-          <p className={`mb-4 ${isMobile ? 'text-sm' : 'text-lg'} text-black`}>
-            Your privacy is our priority. Every message you send through this form is treated with the highest level of confidentiality. We’ve created this space to allow you the freedom to express yourself without hesitation or fear of judgment. Whether you're seeking advice, looking for support, or just need to share your thoughts, we’re here to listen and help you grow—personally, academically, and professionally. Please take your time to fill out the form below, and trust that your voice will be heard in the safest and most supportive environment possible.
-          </p>
+        
+
+<div className="bg-gray-100 rounded-lg p-6 mb-8 shadow-md">
+  <h2 className="text-2xl font-bold text-center mb-4">Membership Opening Soon!</h2>
+  <p className="text-lg text-center mb-6">Join our community and be the first to know when memberships open. Stay tuned for exciting updates and opportunities.</p>
+  <div className="flex justify-center">
+    <button className="bg-blue-500 text-white font-semibold py-2 px-6 rounded-full hover:bg-blue-600 transition-all duration-300">
+      Register Your Interest
+    </button>
+  </div>
         </div>
+        <div className={`shadow-lg rounded-lg p-6 mb-8 border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'text-sm' : 'text-lg'}`}>
+  <p className={`mb-4 ${isMobile ? 'text-sm' : 'text-lg'} text-black`}>
+    At TechSaavy, we're here for you beyond academics. This private and secure space is your platform to share anything on your mind—whether it’s about studies, personal matters, or career aspirations. Think of it as more than a feedback form—it’s a place to seek guidance or support, and we’re committed to listening with care and confidentiality. Whatever you’re facing, your voice is important to us, and we’re here to help you grow and find direction.
+  </p>
+</div>
+
         <form
           onSubmit={handleSubmit}
           className={`bg-white bg-opacity-80 p-8 rounded-lg shadow-md transition-transform duration-300 hover:shadow-2xl ${isMobile ? 'text-xs' : 'text-base'}`}
