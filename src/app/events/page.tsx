@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import 'keen-slider/keen-slider.min.css'; 
+import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from "keen-slider/react";
 
 const events = [
@@ -22,26 +22,24 @@ const events = [
 const EventsPage = () => {
   const [selectedEvent, setSelectedEvent] = useState(events[0]);
   const [isMobile, setIsMobile] = useState(false);
-  const [sliderRef, slider] = useKeenSlider({
-    loop: true, // Enable infinite loop
+  const [sliderRef, instanceRef] = useKeenSlider({
+    loop: true,
     slides: { perView: 1 },
-    autoplay: {
-      delay: 2000, // 2 seconds
-      disableOnInteraction: false,
+    mode: "snap",
+    breakpoints: {
+      '(max-width: 640px)': {
+        slides: { perView: 1 },
+      },
     },
-    slideChanged(s) {
-      setSelectedEvent(events[s.track.details.rel]); // Update selected event
+    slideChanged(slider) {
+      setSelectedEvent(events[slider.track.details.rel]);
     },
   });
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 640);
-    };
-
-    handleResize(); // Set initial value
+    const handleResize = () => setIsMobile(window.innerWidth <= 640);
     window.addEventListener('resize', handleResize);
-
+    handleResize(); // Initial check
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -57,18 +55,18 @@ const EventsPage = () => {
       <div className="p-4 sm:p-6 lg:p-8">
         {/* Introductory Section */}
         <div className="mb-12">
-          <h1 className={`text-3xl sm:text-4xl font-bold mb-4 text-gray-900 ${isMobile ? 'text-2xl' : ''}`}>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">
             Events
           </h1>
-          <p className={`text-base text-justify sm:text-lg mb-6 text-black shadow-lg rounded-lg p-6 border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'text-sm' : ''}`}>
+          <p className="text-base sm:text-lg mb-6 text-black shadow-lg rounded-lg p-6 bg-transparent hover:shadow-2xl transition-all duration-300">
             At TechSaavy, we host a variety of exciting and educational events that bring our community together. From high-energy hackathons to collaborative design sprints, our events are designed to foster learning, collaboration, and innovation.
           </p>
         </div>
 
         {/* Keen Slider Section */}
         <div ref={sliderRef} className="keen-slider">
-          {events.map((event) => (
-            <div key={event.title} className="keen-slider__slide">
+          {events.map((event, index) => (
+            <div key={index} className="keen-slider__slide">
               <Image
                 src={event.imageSrc}
                 alt={event.title}
@@ -81,14 +79,11 @@ const EventsPage = () => {
         </div>
 
         {/* Event Details Section */}
-        <div
-          className={`bg-white text-justify rounded-lg shadow-lg border border-gray-300 p-6 hover:shadow-2xl hover:border-gray-800 transition-shadow duration-300 ${isMobile ? 'text-sm' : ''}`}
-          style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
-        >
-          <h2 className={`text-xl sm:text-2xl font-bold mb-4 text-gray-900 ${isMobile ? 'text-lg' : ''}`}>
+        <div className="bg-white text-justify rounded-lg shadow-lg border border-gray-300 p-6 hover:shadow-2xl hover:border-gray-800 transition-shadow duration-300" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
+          <h2 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">
             {selectedEvent.title}
           </h2>
-          <p className={`text-base sm:text-lg text-gray-700 mb-4 ${isMobile ? 'text-sm' : ''}`}>
+          <p className="text-base sm:text-lg text-gray-700 mb-4">
             {selectedEvent.longDescription}
           </p>
         </div>
