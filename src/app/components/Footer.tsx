@@ -46,13 +46,13 @@ const Footer = () => {
         {/* Second Row: Address */}
         <div className="flex flex-col items-center text-center mb-4">
           <div className="flex items-center justify-center mb-2">
-            <FaMapMarkerAlt className={`text-${isMobile ? '2xl' : '3xl'} mr-2`} />
+            <FaMapMarkerAlt className={`text-${isMobile ? 'xl' : '3xl'} mr-2`} />
             <p className={`mb-0 ${isMobile ? "text-xs max-w-xs" : "text-base"}`}>
               Department of Information Technology
             </p>
           </div>
-          <p className={`mb-0 ${isMobile ? "text-xs max-w-xs" : "text-base"}`}>
-            Main Block, 2nd Floor, SRM Easwari Engineering College,<br />
+          <p className={`mb-0 text-justify${isMobile ? "text-xs max-w-xs" : "text-base"}`}>
+            Main Block,2nd Floor,SRM Easwari Engineering College,<br/>
             Ramapuram, Chennai-89
           </p>
         </div>

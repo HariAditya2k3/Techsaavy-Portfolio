@@ -54,11 +54,16 @@ const ContactPage = () => {
 
   return (
     <div
-      className={`bg-blue-100 text-black font-bold hover:shadow-2xl hover:border-gray-800 transition-all duration-600 shadow-lg rounded-lg ${isMobile ? 'bg-[url("/homecoversm.gif")]' : 'bg-[url("/homecover.gif")]'} bg-cover bg-center`}
+      className={`text-black font-bold hover:shadow-2xl hover:border-gray-800 transition-all duration-600 shadow-lg rounded-lg ${isMobile ? "bg-[url('/homecoversm.gif')]" : "bg-[url('/homecover.gif')]"}`}
+      style={{
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
     >
       <div className="p-8">
         <h1 className={`text-3xl font-bold mb-4 text-gray-900 ${isMobile ? 'text-2xl' : 'text-4xl'}`}>
-          Share Your Thoughts
+          Stay Connected
         </h1>
         
 
@@ -72,7 +77,7 @@ const ContactPage = () => {
   </div>
         </div>
         <div className={`shadow-lg rounded-lg p-6 mb-8 border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'text-sm' : 'text-lg'}`}>
-  <p className={`mb-4 ${isMobile ? 'text-sm' : 'text-lg'} text-black`}>
+  <p className={`mb-4 text-justify ${isMobile ? 'text-sm' : 'text-xl'} text-black`}>
     At TechSaavy, we're here for you beyond academics. This private and secure space is your platform to share anything on your mind—whether it’s about studies, personal matters, or career aspirations. Think of it as more than a feedback form—it’s a place to seek guidance or support, and we’re committed to listening with care and confidentiality. Whatever you’re facing, your voice is important to us, and we’re here to help you grow and find direction.
   </p>
 </div>

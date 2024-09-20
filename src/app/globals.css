@@ -75,8 +75,8 @@ body {
   position: fixed; /* Fix spinner position */
   top: 15px; /* Adjust top position */
   right: 15px; /* Adjust right position */
-  width: 40px; /* Size of the spinner */
-  height: 40px; /* Size of the spinner */
+  width: 80px; /* Size of the spinner */
+  height: 80px; /* Size of the spinner */
 }
 
 /* Customize the spinner icon */

@@ -1,9 +1,8 @@
 "use client";
-
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
+import 'keen-slider/keen-slider.min.css'; 
+import { useKeenSlider } from "keen-slider/react";
 
 const events = [
   {
@@ -23,6 +22,17 @@ const events = [
 const EventsPage = () => {
   const [selectedEvent, setSelectedEvent] = useState(events[0]);
   const [isMobile, setIsMobile] = useState(false);
+  const [sliderRef, slider] = useKeenSlider({
+    loop: true, // Enable infinite loop
+    slides: { perView: 1 },
+    autoplay: {
+      delay: 2000, // 2 seconds
+      disableOnInteraction: false,
+    },
+    slideChanged(s) {
+      setSelectedEvent(events[s.track.details.rel]); // Update selected event
+    },
+  });
 
   useEffect(() => {
     const handleResize = () => {
@@ -50,44 +60,29 @@ const EventsPage = () => {
           <h1 className={`text-3xl sm:text-4xl font-bold mb-4 text-gray-900 ${isMobile ? 'text-2xl' : ''}`}>
             Events
           </h1>
-          <p className={`text-base sm:text-lg mb-6 text-black shadow-lg rounded-lg p-6 border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'text-sm' : ''}`}>
+          <p className={`text-base text-justify sm:text-lg mb-6 text-black shadow-lg rounded-lg p-6 border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'text-sm' : ''}`}>
             At TechSaavy, we host a variety of exciting and educational events that bring our community together. From high-energy hackathons to collaborative design sprints, our events are designed to foster learning, collaboration, and innovation.
-            <br /><br />
-            These events are an excellent opportunity for all of you to actively participate and benefit. Top performers are recognized based on their involvement, and internship referrals will be provided to standout participants.
-            <br /><br />
-            Explore our recent events below and get a glimpse of how we're making an impact in the tech world.
           </p>
         </div>
 
-        {/* Carousel Section */}
-        
-        <Carousel
-  showArrows={true}
-  showThumbs={false}
-  infiniteLoop={true}
-  onChange={(index) => setSelectedEvent(events[index])}
-  className={`rounded-lg shadow-lg ${isMobile ? 'h-48' : 'h-64'}`}
-  autoPlay={true} // Enables auto-scrolling
-  interval={2000} // Set the interval to 2 seconds (2000 milliseconds)
->
-  {events.map((event) => (
-    <div key={event.title} className="relative">
-      <Image
-        src={event.imageSrc}
-        alt={event.title}
-        width={800}
-        height={400}
-        className={`w-full h-full object-cover rounded-lg ${isMobile ? 'h-48' : 'h-64'}`}
-      />
-    </div>
-  ))}
-</Carousel>
-
-       
+        {/* Keen Slider Section */}
+        <div ref={sliderRef} className="keen-slider">
+          {events.map((event) => (
+            <div key={event.title} className="keen-slider__slide">
+              <Image
+                src={event.imageSrc}
+                alt={event.title}
+                width={800}
+                height={400}
+                className={`w-full h-full object-cover rounded-lg ${isMobile ? 'h-48' : 'h-64'}`}
+              />
+            </div>
+          ))}
+        </div>
 
         {/* Event Details Section */}
         <div
-          className={`bg-white rounded-lg shadow-lg border border-gray-300 p-6 hover:shadow-2xl hover:border-gray-800 transition-shadow duration-300 ${isMobile ? 'text-sm' : ''}`}
+          className={`bg-white text-justify rounded-lg shadow-lg border border-gray-300 p-6 hover:shadow-2xl hover:border-gray-800 transition-shadow duration-300 ${isMobile ? 'text-sm' : ''}`}
           style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
         >
           <h2 className={`text-xl sm:text-2xl font-bold mb-4 text-gray-900 ${isMobile ? 'text-lg' : ''}`}>

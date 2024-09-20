@@ -7,7 +7,8 @@ import Loader from './components/Loader';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import NProgress from 'nprogress';
-import 'nprogress/nprogress.css'; // Import NProgress styles
+import 'nprogress/nprogress.css'; 
+import Head from 'next/head'; 
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,19 +17,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Start NProgress on route change
     const handleStart = () => {
       NProgress.start();
       setLoading(true);
     };
 
-    // Stop NProgress and update loading state
     const handleStop = () => {
       NProgress.done();
       setLoading(false);
     };
 
-    // Setup event listeners for route changes
     handleStart(); // Start loading when the component mounts
     handleStop();  // Stop loading when the component mounts
 
@@ -39,6 +37,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en">
+      <Head>
+        <title>TechSaavy</title>
+        <meta name="description" content="TechSaavy is your go-to platform for the latest in tech, code challenges, and community events." />
+        <meta name="keywords" content="TechSaavy, technology, coding, challenges, events" />
+        <meta name="author" content="TechSaavy " />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <body className={`${inter.className} flex flex-col min-h-screen bg-blue-300 text-white`}>
         <TitleCard />
         <main className="flex-grow container mx-auto px-4 py-8">
