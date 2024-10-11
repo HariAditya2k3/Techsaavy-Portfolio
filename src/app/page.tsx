@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  
   const [isMobile, setIsMobile] = useState(false);
 
   // Function to detect window width and set isMobile state
@@ -51,7 +52,7 @@ export default function Home() {
   
   {/* Button for Challenge - Responsive and below the poster */}
   <div className="flex justify-center mt-4">
-    <a href="https://www.hackerrank.com/weekly-code-challenge-second-years-week-7">
+    <a href="https://www.hackerrank.com/weekly-code-challenge-second-years-week-8">
       <button className="bg-blue-500 text-white px-4 py-2 text-base md:text-lg lg:text-xl rounded-lg hover:bg-blue-600 hover:shadow-lg focus:outline-none transition-all duration-300 ease-in-out">
         Start Challenge
       </button>
