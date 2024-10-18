@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { FloatingNavDemo } from './Navbar'; // Ensure Navbar is correctly imported
-import { TypewriterEffectDemo } from './typewriter.tsx';
+import { TypewriterEffectDemo } from './typewriter';
 
 const TitleCard = () => {
   const [isMobile, setIsMobile] = useState(false);

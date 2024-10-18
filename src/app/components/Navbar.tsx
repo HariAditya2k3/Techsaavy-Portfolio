@@ -2,11 +2,13 @@
 import React from "react";
 import { FloatingNav } from "./ui/floating-navbar";
 import { IconHome, IconBrandPnpm, IconUser, IconCalendarSearch } from "@tabler/icons-react";
+import { MdOutlineEmojiEvents } from "react-icons/md";
+import { GiArchiveRegister } from "react-icons/gi";
 export function FloatingNavDemo() {
   const navItems = [
     {
       name: "Home",
-      link: "/",
+      link: "/home",
       icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
@@ -15,10 +17,10 @@ export function FloatingNavDemo() {
       icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
-      name: "Contact",
+      name: "Register",
       link: "/contact",
       icon: (
-        < IconBrandPnpm   className="h-4 w-4 text-neutral-500 dark:text-white" />
+        < GiArchiveRegister  className="h-4 w-4 text-neutral-500 dark:text-white" />
       ),
       },
     
@@ -26,7 +28,7 @@ export function FloatingNavDemo() {
         name: "Events",
         link: "/events",
         icon: (
-          <IconCalendarSearch className="h-4 w-4 text-neutral-500 dark:text-white" />
+          <MdOutlineEmojiEvents className="h-4 w-4 text-neutral-500 dark:text-white" />
         ),
         
     },

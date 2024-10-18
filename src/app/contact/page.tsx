@@ -76,64 +76,7 @@ const ContactPage = () => {
     </button>
   </div>
         </div>
-        <div className={`shadow-lg rounded-lg p-6 mb-8 border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'text-sm' : 'text-lg'}`}>
-  <p className={`mb-4 text-justify ${isMobile ? 'text-sm' : 'text-xl'} text-black`}>
-    At TechSaavy, we're here for you beyond academics. This private and secure space is your platform to share anything on your mind—whether it’s about studies, personal matters, or career aspirations. Think of it as more than a feedback form—it’s a place to seek guidance or support, and we’re committed to listening with care and confidentiality. Whatever you’re facing, your voice is important to us, and we’re here to help you grow and find direction.
-  </p>
-</div>
-
-        <form
-          onSubmit={handleSubmit}
-          className={`bg-white bg-opacity-80 p-8 rounded-lg shadow-md transition-transform duration-300 hover:shadow-2xl ${isMobile ? 'text-xs' : 'text-base'}`}
-          style={{ transform: isLoading ? 'scale(0.98)' : 'scale(1)' }}
-        >
-          <h3 className={`text-xl font-semibold mb-4 text-gray-900 ${isMobile ? 'text-lg' : 'text-2xl'}`}>
-            Send Us a Message
-          </h3>
-          <div className="mb-4">
-            <label
-              htmlFor="username"
-              className={`block ${isMobile ? 'text-sm' : 'text-lg'} font-medium text-gray-700 mb-2`}
-            >
-              Username
-            </label>
-            <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-              placeholder="Let us know who you are"
-              className="w-full p-3 border rounded-lg bg-gray-100 bg-opacity-70 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div className="mb-6">
-            <label
-              htmlFor="query"
-              className={`block ${isMobile ? 'text-sm' : 'text-lg'} font-medium text-gray-700 mb-2`}
-            >
-              Your Query
-            </label>
-            <textarea
-              id="query"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              required
-              placeholder="Voice your thoughts here"
-              className="w-full p-3 border rounded-lg bg-gray-100 bg-opacity-70 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
-            />
-          </div>
-          <button
-            type="submit"
-            className={`w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 hover:scale-105 transition-all duration-300 ${isMobile ? 'text-sm' : 'text-base'}`}
-            disabled={isLoading}
-          >
-            {isLoading ? 'Sending...' : 'Send Message'}
-          </button>
-          {status && (
-            <p className="mt-6 text-center text-gray-700">{status}</p>
-          )}
-        </form>
+        
       </div>
     </div>
   );
