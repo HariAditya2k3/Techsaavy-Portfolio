@@ -38,29 +38,74 @@ const hierarchicalMembers = [
 // Office Bearers
 const officeBearers = [
   {
-    name: 'Ms.Tiana Maria M P.',
-    position: 'Brand Manager',
-    imageSrc: '/tiana.png',
+    name: 'CYRIL JUDE VICTOR V',
+    position: 'ASSOCIATE HEAD',
+    imageSrc: '/Cyril Jude Victor - Associate Head .jpg',
+  },
+  {
+    name: 'Mr.Giridharan K.',
+    position: 'OPERATIONS MANAGER',
+    imageSrc: '/giri.png',
   },
   {
     name: 'Mr.Arul Kumaran K V.',
-    position: 'Event Head',
+    position: 'FINANCIAL HEAD',
     imageSrc: '/arul.png',
   },
   {
     name: 'Ms.Sandra Infantia Rodrigo J.',
-    position: 'Event Head',
+    position: 'PUBLIC RELATION OFFICER',
     imageSrc: '/sandra.png',
   },
   {
-    name: 'Mr.Giridharan K.',
-    position: 'Design Head',
-    imageSrc: '/giri.png',
+    name: 'Ms.Divya Sree M.',
+    position: 'PROJECT HEAD',
+    imageSrc: '/divya.png',
   },
   {
-    name: 'Ms.Divya Sree M.',
-    position: 'Digital Head',
-    imageSrc: '/divya.png',
+    name: 'MANOJ KANNA K',
+    position: 'TECH LEAD',
+    imageSrc: '/manojkanna.jpg',
+  },
+  {
+    name: 'PADMA SURUTHI S',
+    position: 'EVENT HEAD',
+    imageSrc: '/Padma Suruthi S III B.jpg',
+  },
+  {
+    name: 'NANDHEETHA V',
+    position: 'ALUMNI NETWORK MANAGER',
+    imageSrc: '/Nandheetha V III IT B.jpg',
+  },
+  {
+    name: 'SAKTHI MANIKANDAN S',
+    position: 'BRAND MANAGER',
+    imageSrc: '/Sakthi Manikandan .jpg',
+  },
+  {
+    name: 'GOWTHAM M',
+    position: 'JOIN ASSOCIATE HEAD',
+    imageSrc: '/Gowtham .jpg',
+  },
+  {
+    name: 'DIYA U',
+    position: 'INNOVATIVE LEAD',
+    imageSrc: '/DIYA ID.jpg',
+  },
+  {
+    name: 'VIBU SREE CHARAN M S',
+    position: 'EVENT LEAD',
+    imageSrc: '/Vibhu - Event Lead.jpg',
+  },
+  {
+    name: 'LINGESH J',
+    position: 'DESIGN LEAD',
+    imageSrc: '/Lingesh J II B.JPG',
+  },
+  {
+    name: 'RACHEL EVA',
+    position: 'CONTENT LEAD',
+    imageSrc: '/Rachel Eva.jpg',
   },
 ];
 
