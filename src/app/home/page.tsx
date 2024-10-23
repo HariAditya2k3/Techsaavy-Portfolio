@@ -41,7 +41,7 @@ export default function Home() {
 
         // Instead of calculating the actual week number, we hardcode it to 9
         const weekNumber = 9; // Always set to week 9
-        setChallengeLink(`https://www.hackerrank.com/weekly-code-challenge-second-years-week-${weekNumber}`);
+        setChallengeLink(`https://forms.gle/7zvyhJUpwC4R45QH7`);
       };
 
       calculateNextChallengeLink(); // Set the challenge link with week number 9
@@ -89,7 +89,7 @@ export default function Home() {
           <div className="relative mb-8">
             {/* Mobile and desktop view image */}
             <img 
-              src={isMobile ? "/hc1.png" : "/hc1lg.png"} 
+              src={isMobile ? "/hc.jpg" : "/hclg.jpg"} 
               alt="Event Poster" 
               className={`w-full ${isMobile ? 'h-auto' : 'h-96'} object-cover rounded-lg shadow-lg`} 
             />
@@ -97,7 +97,7 @@ export default function Home() {
             <div className="flex justify-center mt-4">
               <a href={challengeLink}>
                 <button className="bg-blue-500 text-white px-4 py-2 text-base md:text-lg lg:text-xl rounded-lg hover:bg-blue-600 hover:shadow-lg focus:outline-none transition-all duration-300 ease-in-out">
-                  Start Challenge
+                  Register Here
                 </button>
               </a>
             </div>
