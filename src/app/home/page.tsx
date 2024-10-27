@@ -41,7 +41,7 @@ export default function Home() {
 
         // Instead of calculating the actual week number, we hardcode it to 9
         const weekNumber = 9; // Always set to week 9
-        setChallengeLink(`https://forms.gle/7zvyhJUpwC4R45QH7`);
+        setChallengeLink(`https://unstop.com/p/codethon2k24-srm-easwari-engineering-college-1199852`);
       };
 
       calculateNextChallengeLink(); // Set the challenge link with week number 9
@@ -97,7 +97,7 @@ export default function Home() {
             <div className="flex justify-center mt-4">
               <a href={challengeLink}>
                 <button className="bg-blue-500 text-white px-4 py-2 text-base md:text-lg lg:text-xl rounded-lg hover:bg-blue-600 hover:shadow-lg focus:outline-none transition-all duration-300 ease-in-out">
-                  Register Here
+                  Start Test
                 </button>
               </a>
             </div>
