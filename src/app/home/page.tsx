@@ -86,14 +86,14 @@ export default function Home() {
         }}
       >
         <div className="p-4 sm:p-2 lg:p-8">
-          <div className="relative mb-8">
-            {/* Mobile and desktop view image */}
+          {/* <div className="relative mb-8">
+          
             <img 
               src={isMobile ? "/hc.jpg" : "/hclg.jpg"} 
               alt="Event Poster" 
               className={`w-full ${isMobile ? 'h-auto' : 'h-96'} object-cover rounded-lg shadow-lg`} 
             />
-            {/* Button for Challenge - Responsive and below the poster */}
+          
             <div className="flex justify-center mt-4">
               <a href={challengeLink}>
                 <button className="bg-blue-500 text-white px-4 py-2 text-base md:text-lg lg:text-xl rounded-lg hover:bg-blue-600 hover:shadow-lg focus:outline-none transition-all duration-300 ease-in-out">
@@ -101,7 +101,7 @@ export default function Home() {
                 </button>
               </a>
             </div>
-          </div>
+          </div> */}
 
           {/* Events Carousel */}
           <div className={`relative p-4 sm:p-6 mb-8 rounded-lg border-0 shadow-xl bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'h-auto' : 'h-auto'}`}>
