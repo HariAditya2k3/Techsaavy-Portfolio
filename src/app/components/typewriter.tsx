@@ -4,23 +4,23 @@ import { TypewriterEffect } from "./ui/typewriter-effect";
 export function TypewriterEffectDemo() {
   const words = [
     {
-      text: "A",
+      text: "Learn,",
       className: "text-gray-800",
     },
     {
-      text: "club",
+      text: "Code,",
       className: "text-gray-800",
     },
     {
-      text: "for",
+      text: "Rise:",
       className: "text-gray-800",
     },
     {
-      text: "Tech",
+      text: "IGNITE",
       className: "text-blue-700 dark:text-blue-700",
     },
     {
-      text: "Enthusiasts",
+      text: "'25",
       className: "text-blue-700 dark:text-blue-700",
     },
   ];

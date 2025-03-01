@@ -1,10 +1,9 @@
-// src/app/api/contact/route.ts
+
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-// Configure your SMTP transport
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // or another email service
+  service: 'gmail', 
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
@@ -19,7 +18,7 @@ export async function POST(request: Request) {
       from: email,
       to: process.env.EMAIL_USER,
       subject: 'Contact Form Submission',
-      text: `Query: ${query}`,
+      text: `Query: ${query}`
     };
 
     await transporter.sendMail(mailOptions);

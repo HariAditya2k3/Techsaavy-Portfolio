@@ -10,20 +10,20 @@ const Footer = () => {
       setIsMobile(window.innerWidth <= 768);
     };
 
-    // Check screen size on initial render
+   
     handleResize();
 
-    // Add event listener for window resize
+   
     window.addEventListener("resize", handleResize);
 
-    // Cleanup the event listener
+  
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <footer className={`bg-blue-500 text-white py-8 mt-8 ${isMobile ? "text-xs" : "text-base"}`}>
       <div className={`container mx-auto flex flex-col items-center justify-center ${isMobile ? "px-4" : "px-8"}`}>
-        {/* First Row: Social Media Icons */}
+       
         <div className="flex items-center justify-center mb-4">
           <a
             href="https://www.instagram.com/techsaavyiteec?igsh=MXR1MWRwcGszbDVqNQ=="
@@ -42,8 +42,6 @@ const Footer = () => {
             <FaLinkedin className={`text-${isMobile ? '2xl' : '3xl'}`} />
           </a>
         </div>
-        
-        {/* Second Row: Address */}
         <div className="flex flex-col items-center text-center mb-4">
           <div className="flex items-center justify-center mb-2">
             <FaMapMarkerAlt className={`text-${isMobile ? 'xl' : '3xl'} mr-2`} />

@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
-// Hierarchical Members with Quotes
+
 const hierarchicalMembers = [
   {
     name: 'Dr. N. Ananthi',
@@ -35,7 +35,6 @@ const hierarchicalMembers = [
   },
 ];
 
-// Office Bearers
 const officeBearers = [
   {
     name: 'CYRIL JUDE VICTOR V',
@@ -112,19 +111,19 @@ const officeBearers = [
 export default function About() {
   const [isMobile, setIsMobile] = useState(false);
 
-  // Function to detect window width and set isMobile state
+
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 640);
   };
 
   useEffect(() => {
-    // Check the initial screen size
+
     handleResize();
 
-    // Add event listener for window resize
+
     window.addEventListener("resize", handleResize);
 
-    // Clean up event listener on component unmount
+  
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -132,7 +131,7 @@ export default function About() {
     <div
       className={`${inter.className} text-black font-bold hover:shadow-2xl hover:border-gray-800 transition-all duration-600 shadow-lg rounded-lg`}
       style={{
-        backgroundImage: isMobile ? "url('/homecoversm.gif')" : "url('/homecover.gif')", // Conditional background image
+        backgroundImage: isMobile ? "none" : "url('/homecover.gif')", // Conditional background image
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -143,7 +142,7 @@ export default function About() {
           Who We Are?
         </h1>
 
-        {/* Logos Section */}
+        
         <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} justify-center items-center gap-8 mb-8`}>
         <div className="relative w-72 h-72 overflow-hidden rounded-lg transition-transform transform hover:scale-105 ">
             <Image
@@ -166,7 +165,7 @@ export default function About() {
           
         </div>
 
-        {/* Introductory Section */}
+       
         <div className={`mb-8 p-6 shadow-lg rounded-lg border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'text-sm' : 'text-lg'}`}>
           <p className={`mb-4 text-black text-justify ${isMobile ? 'text-xs' : 'text-lg'}`}>
             Welcome to TechSaavy, the official student-led club of the{' '}
@@ -181,7 +180,7 @@ export default function About() {
           </p>
         </div>
 
-        {/* Hierarchical Members Carousel */}
+       
         <div className={`relative p-6 mb-8 rounded-lg border-0 shadow-xl bg-transparent hover:shadow-2xl transition-all duration-300`}>
           <h2 className={`text-3xl font-bold mb-8 text-gray-900 ${isMobile ? 'text-2xl' : 'text-3xl'}`}>
             Meet Our Leaders
@@ -210,7 +209,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* Office Bearers Carousel */}
         <div className={`relative p-6 rounded-lg border-0 shadow-xl bg-transparent hover:shadow-2xl transition-all duration-300`}>
           <h2 className={`text-3xl font-bold mb-8 text-gray-900 ${isMobile ? 'text-2xl' : 'text-3xl'}`}>
             Meet Our Team
@@ -219,7 +217,7 @@ export default function About() {
             {officeBearers.map((bearer, index) => (
               <div
                 key={index}
-                className={`bg-transparent rounded-lg shadow-lg overflow-hidden border-0 transition-transform transform hover:scale-105 hover:shadow-2xl`}
+                className={`bg-transparent rounded-lg overflow-hidden border-0 transition-transform transform hover:scale-105 hover:shadow-2xl`}
                 style={{ transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}
               >
                 <div className="relative flex flex-col items-center p-4">

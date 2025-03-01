@@ -16,16 +16,16 @@ export function FloatingNavDemo() {
       link: "/about",
       icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
-    {
-      name: "Register",
-      link: "/contact",
-      icon: (
-        < GiArchiveRegister  className="h-4 w-4 text-neutral-500 dark:text-white" />
-      ),
-      },
+    // {
+    //   name: "Register",
+    //   link: "/contact",
+    //   icon: (
+    //     < GiArchiveRegister  className="h-4 w-4 text-neutral-500 dark:text-white" />
+    //   ),
+    //   },
     
       {
-        name: "Events",
+        name: "Showcase",
         link: "/events",
         icon: (
           <MdOutlineEmojiEvents className="h-4 w-4 text-neutral-500 dark:text-white" />

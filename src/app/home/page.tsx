@@ -13,38 +13,15 @@ export default function Home() {
     const [query, setQuery] = useState('');
     const [status, setStatus] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [challengeLink, setChallengeLink] = useState('');
 
-    // Function to detect window width and set isMobile state
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 640);
     };
 
     useEffect(() => {
-      // Check the initial screen size
       handleResize();
-
-      // Add event listener for window resize
       window.addEventListener("resize", handleResize);
-
-      // Clean up event listener on component unmount
       return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    useEffect(() => {
-      // Function to calculate the next Friday and update the challenge link
-      const calculateNextChallengeLink = () => {
-        const today = new Date();
-        const daysUntilFriday = (5 - today.getDay() + 7) % 7; // 5 is Friday
-        const nextFriday = new Date(today);
-        nextFriday.setDate(today.getDate() + daysUntilFriday);
-
-        // Instead of calculating the actual week number, we hardcode it to 9
-        const weekNumber = 9; // Always set to week 9
-        setChallengeLink(`https://unstop.com/p/codethon2k24-srm-easwari-engineering-college-1199852`);
-      };
-
-      calculateNextChallengeLink(); // Set the challenge link with week number 9
     }, []);
     
     const handleSubmit = async (event: React.FormEvent) => {
@@ -77,104 +54,122 @@ export default function Home() {
 
     return (
       <div
-        className={`${inter.className} text-black font-bold hover:shadow-2xl hover:border-gray-800 transition-all duration-600 shadow-lg rounded-lg`}
+        className={`${inter.className} text-black font-bold hover:shadow-3xl hover:border-gray-800 transition-all duration-600 shadow-lg rounded-lg`}
         style={{
-          backgroundImage: isMobile ? "url('/homecoversm.gif')" : "url('/homecover.gif')", // Conditional background image
+          backgroundImage: isMobile ? "none" : "url('/homecover.gif')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }}
       >
         <div className="p-4 sm:p-2 lg:p-8">
-          {/* <div className="relative mb-8">
           
-            <img 
-              src={isMobile ? "/hc.jpg" : "/hclg.jpg"} 
-              alt="Event Poster" 
-              className={`w-full ${isMobile ? 'h-auto' : 'h-96'} object-cover rounded-lg shadow-lg`} 
-            />
           
-            <div className="flex justify-center mt-4">
-              <a href={challengeLink}>
-                <button className="bg-blue-500 text-white px-4 py-2 text-base md:text-lg lg:text-xl rounded-lg hover:bg-blue-600 hover:shadow-lg focus:outline-none transition-all duration-300 ease-in-out">
-                  Start Test
-                </button>
-              </a>
-            </div>
-          </div> */}
-
-          {/* Events Carousel */}
-          <div className={`relative p-4 sm:p-6 mb-8 rounded-lg border-0 shadow-xl bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'h-auto' : 'h-auto'}`}>
-            <h2 className={`text-xl font-bold mb-4 text-black ${isMobile ? 'text-lg' : 'text-2xl'}`}>
-              Events We Organize
-            </h2>
-            <div className="relative overflow-x-auto custom-scrollbar">
-              <div className="carousel flex space-x-4 overflow-auto">
-                <div className="carousel-inner flex space-x-4">
-                  {[
-                    {
-                      imgSrc: "/hc1.jpg",
-                      title: "Weekly Code Challenges",
-                      description: "Participate in our coding challenges designed to test and improve your skills in a fun and competitive environment."
-                    },
-                    {
-                      imgSrc: "/hc3.jpg",
-                      title: "Workshops on Emerging Technologies",
-                      description: "Join our hands-on workshops to explore and learn about emerging technologies."
-                    },
-                    {
-                      imgSrc: "/hc4.jpg",
-                      title: "Knowledge Sharing in Our Tech Club",
-                      description: "In our tech club, classmates share insights and expertise through workshops, discussions, and projects."
-                    },
-                    {
-                      imgSrc: "/hc5.png",
-                      title: "Fostering Growth Through Peer Support",
-                      description: "In our tech club, senior members host weekly sessions to address questions and guide on technical topics."
-                    },
-                    {
-                      imgSrc: "/hc2.png",
-                      title: "Guest Lectures by Industry Experts",
-                      description: "Gain insights from leading industry professionals who share their experiences and knowledge."
-                    }
-                  ].map((event, index) => (
-                    <div
-                      key={index}
-                      className={`carousel-item border-0 rounded-lg overflow-hidden relative hover:shadow-2xl transition-transform transform hover:scale-105 ${isMobile ? 'w-48 h-auto' : 'w-72 h-100'} bg-transparent`}
-                      style={{ transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}
-                    >
-                      <img src={event.imgSrc} alt={event.title} className="w-full object-cover" />
-                      <div className={`p-2 ${isMobile ? 'text-xs' : 'p-4'}`}>
-                        <h3 className={`font-semibold mb-2 ${isMobile ? 'text-sm' : 'text-lg'} text-gray-700`}>{event.title}</h3>
-                        <p className={`text-black ${isMobile ? 'text-xs' : 'text-m'}`}>{event.description}</p>
-                      </div>
-                    </div>
-                  ))}
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {[
+  {
+    imgSrc: "/ev1.png",
+    title: "A workshop on UI/UX Design",
+    description: "Master UI/UX design in our hands-on workshop!",
+    participants: 1,
+    amount: "100",
+    date: "March 10, 2025",
+    time: "10:00 AM",
+    registrationLink: "https://forms.gle/JLFaHyPk8cy8ETt88"
+  },
+    {
+      imgSrc: "/ev2.png",
+      title: "Competetive Coding Contest",
+      description: "Join our coding contest to solve problems within time limits and showcase your skills!",
+      participants: 1,
+      amount: "₹ 50",
+      date: "March 11, 2025",
+      time: "10:00 AM",
+      registrationLink: "https://forms.gle/w9fndi6fZCEHJ3An6"
+    },
+    
+    
+    {
+      imgSrc: "/ev3.png",
+      title: "Debugging Challenge",
+      description: "Join our Bug Hunt to find and fix bugs in code under time constraints!",
+      participants: "2",
+      amount: "₹ 100/team",
+      date: "March 12, 2025",
+      time: "10:00 AM",
+      registrationLink: "https://forms.gle/JWcpuqJ6fEw3kydH7"
+    },
+    {
+      imgSrc: "/ev4.png",
+      title: "Hackathon",
+      description: "Create innovative websites in our fast-paced hackathon!",
+      participants: "2",
+      amount: "₹ 500/team",
+      date: "March 13, 2025",
+      time: "10:00 AM",
+      registrationLink: "https://forms.gle/1wGL612kfSaMXmkP6"
+    },
+    {
+      imgSrc: "/ev5.png",
+      title: "Paper Presentation",
+      description: "Present your ideas and research to a knowledgeable audience in our paper presentation!",
+      participants: "2-4",
+      amount: "₹ 200/team",
+      date: "March 14, 2025",
+      time: "10:00 AM",
+      registrationLink: "https://forms.gle/bApaqaqwFDzAWuhq9"
+      }
+            ].map((event, index) => (
+    
+              <a
+              key={index}
+              href={event.registrationLink}
+              className="border-0 rounded-lg overflow-hidden relative hover:shadow-2xl transition-all duration-300 flex flex-col cursor-pointer hover:translate-z-4 mb-6"
+            >
+              <div className="w-full h-80 relative">
+                <img
+                  src={event.imgSrc}
+                  alt={event.title}
+                  className="w-full h-full object-contain"  
+                />
+        
+                <div className="absolute top-2 right-2 bg-white bg-opacity-90 p-2 text-sm text-black rounded-lg shadow-md">
+                  <p>{event.date}</p>
+                  <p>{event.time}</p>
                 </div>
               </div>
-            </div>
-          </div>
+              <div className="p-4 flex flex-col justify-between flex-grow">
+                <h3 className={`font-semibold mb-2 text-black text-center ${isMobile ? 'text-sm' : 'text-lg'}`}>{event.title}</h3>
+                <p className="text-black text-sm mb-4 flex-grow">{event.description}</p>
+                <div className="flex justify-between items-center">
+                
+                  <div className="text-left text-black text-bold text-sm">
+                    <p>Max Participants: {event.participants}</p>
+                    <p>Amount: {event.amount}</p>
+                  </div>
+               
+                  <div className="block py-4 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-200">
+                    Register Now
+                  </div>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
 
-          <div className={`shadow-lg rounded-lg p-6 mb-8 border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'text-sm' : 'text-lg'}`}>
-            <p className={`mb-4 text-justify ${isMobile ? 'text-sm' : 'text-xl'} text-black`}>
-              At TechSaavy, we're here for you beyond academics. This private and secure space is your platform to share anything on your mind—whether it’s about studies, personal matters, or career aspirations.
-            </p>
-          </div>
+
 
           <form
             onSubmit={handleSubmit}
-            className={`bg-white bg-opacity-80 p-8 rounded-lg shadow-md transition-transform duration-300 hover:shadow-2xl ${isMobile ? 'text-xs' : 'text-base'}`}
+            className={`bg-white bg-opacity-80 p-6 rounded-lg shadow-md transition-transform duration-300 hover:shadow-2xl ${isMobile ? 'text-xs' : 'text-base'}`}
             style={{ transform: isLoading ? 'scale(0.98)' : 'scale(1)' }}
           >
             <h3 className={`text-xl font-semibold mb-4 text-gray-900 ${isMobile ? 'text-lg' : 'text-2xl'}`}>
-              Send Us a Message
+              Raise Your Query
             </h3>
             <div className="mb-4">
-              <label
-                htmlFor="username"
-                className={`block ${isMobile ? 'text-sm' : 'text-lg'} font-medium text-gray-700 mb-2`}
-              >
-                Username
+              <label htmlFor="username" className={`block ${isMobile ? 'text-sm' : 'text-lg'} font-medium text-gray-700 mb-2`}>
+                Name
               </label>
               <input
                 type="text"
@@ -182,15 +177,12 @@ export default function Home() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                placeholder="Let us know who you are"
+                placeholder="Name"
                 className="w-full p-3 border rounded-lg bg-gray-100 bg-opacity-70 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="mb-6">
-              <label
-                htmlFor="query"
-                className={`block ${isMobile ? 'text-sm' : 'text-lg'} font-medium text-gray-700 mb-2`}
-              >
+              <label htmlFor="query" className={`block ${isMobile ? 'text-sm' : 'text-lg'} font-medium text-gray-700 mb-2`}>
                 Your Query
               </label>
               <textarea
@@ -198,7 +190,7 @@ export default function Home() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 required
-                placeholder="Voice your thoughts here"
+                placeholder="Type your query here..."
                 className="w-full p-3 border rounded-lg bg-gray-100 bg-opacity-70 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 rows={4}
               />
