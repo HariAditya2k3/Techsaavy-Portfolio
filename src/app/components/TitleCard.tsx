@@ -1,64 +1,39 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { FloatingNavDemo } from './Navbar'; 
-import { TypewriterEffectDemo } from './typewriter';
+import { FloatingNavDemo } from './Navbar';
 
 const TitleCard = () => {
   const [isMobile, setIsMobile] = useState(false);
 
-
-  const handleResize = () => {
-    setIsMobile(window.innerWidth <= 720);
-  };
-
   useEffect(() => {
- 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 720);
+    };
+
     handleResize();
     window.addEventListener("resize", handleResize);
-
- 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <div
-      className="
-        relative text-white p-8 mb-8 rounded-lg shadow-xl flex items-center justify-between
-        min-h-[200px]
-        bg-cover bg-center
-      "
+    <div className="
+      relative flex items-center justify-between min-h-[400px] p-8 rounded-2xl 
+      shadow-2xl bg-cover bg-center transition-all duration-500
+      before:absolute before:inset-0 before:bg-black/30 before:rounded-2xl
+      transform perspective-[1200px] hover:rotate-x-[8deg] hover:rotate-y-[8deg]
+      hover:scale-[1.05] hover:shadow-[0_0_25px_rgba(255,0,0,0.8)]
+      after:absolute after:w-full after:h-full after:top-0 after:left-0 after:rounded-2xl 
+      after:border-[3px] after:border-transparent hover:after:border-red-600 overflow-hidden"
       style={{
-        backgroundImage: isMobile
-          ? "url('/Techsaavysm.gif')" 
-          : "url('/Techsaavy.gif')", 
+        backgroundImage: isMobile ? "url('/Techsaavysm.gif')" : "url('/Techsaavy.gif')",
       }}
     >
-   
-      <div className="absolute top-4 left-4 flex items-center">
-        <img 
-          src={isMobile ? "/techsaavysm.svg" : "/techsaavy.svg"} 
-          alt="Company Logo"
-          className={isMobile ? "w-24 h-24" : "w-40 h-40"} 
-        />
-      </div>
-      <div className="absolute top-4 right-4 flex items-center">
-        <img
-          src={isMobile ? "/cl-logo.png" : "/cl-logo.png"} 
-          alt="College Logo"
-          className={isMobile ? "w-14.5 h-8" : "w-60 h-30"}
-        />
-      </div>
-
-   
-      <div className="flex flex-col items-center flex-grow">
-        <div className="sticky top-4 z-50">
-          <FloatingNavDemo />
-        </div>
-        <TypewriterEffectDemo />
+      <div className="relative z-10 pr-6">
+        <FloatingNavDemo />
       </div>
     </div>
   );
 };
 
-export default TitleCard; 
+export default TitleCard;

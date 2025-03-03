@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${inter.className} flex flex-col min-h-screen bg-blue-300 text-white`}>
+      <body className={`${inter.className} flex flex-col min-h-screen bg-black text-white`}>
         <TitleCard />
         <main className="flex-grow container mx-auto px-4 py-8">
           {children}

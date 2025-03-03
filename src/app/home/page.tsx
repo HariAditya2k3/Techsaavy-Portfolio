@@ -1,218 +1,154 @@
-"use client";
+'use client';
 
-import '../globals.css';
-import { Inter } from 'next/font/google';
-import { useState, useEffect } from 'react';
+import "../globals.css";
+import { Inter } from "next/font/google";
+import { useState, useEffect } from "react";
+import Image from "next/image"; // Import Next.js Image
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  
-    const [isMobile, setIsMobile] = useState(false);
-    const [username, setUsername] = useState('');
-    const [query, setQuery] = useState('');
-    const [status, setStatus] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState<null | (typeof events)[0]>(null); // Fixed Type
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 640);
-    };
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 640);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-    useEffect(() => {
-      handleResize();
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-    
-    const handleSubmit = async (event: React.FormEvent) => {
-      event.preventDefault();
-      setIsLoading(true);
-
-      try {
-        const res = await fetch('/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ username, query }),
-        });
-
-        if (res.ok) {
-          setStatus('Query Sent!');
-          setUsername('');
-          setQuery('');
-        } else {
-          setStatus('OOPS!! Try Again');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        setStatus('OOPS!! An Error Occurred, Please Try Again Later');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    return (
-      <div
-        className={`${inter.className} text-black font-bold hover:shadow-3xl hover:border-gray-800 transition-all duration-600 shadow-lg rounded-lg`}
-        style={{
-          backgroundImage: isMobile ? "none" : "url('/homecover.gif')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        <div className="p-4 sm:p-2 lg:p-8">
-          
-          
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-            {[
-  {
-    imgSrc: "/ev1.png",
-    title: "A workshop on UI/UX Design",
-    description: "Master UI/UX design in our hands-on workshop!",
-    participants: 1,
-    amount: "100",
-    date: "March 10, 2025",
-    time: "10:00 AM",
-    registrationLink: "https://forms.gle/JLFaHyPk8cy8ETt88"
-  },
+  const events = [
+    {
+      imgSrc: "/ev1.png",
+      title: "A workshop on UI/UX Design",
+      description: "Master UI/UX design in our hands-on workshop!",
+      participants: "1",
+      amount: "₹100",
+      prize: "nil",
+      venue: "TRP Auditorium Hall",
+      date: "March 10, 2025",
+      time: "9:00 AM",
+      registrationLink: "https://forms.gle/JLFaHyPk8cy8ETt88",
+    },
     {
       imgSrc: "/ev2.png",
-      title: "Competetive Coding Contest",
-      description: "Join our coding contest to solve problems within time limits and showcase your skills!",
-      participants: 1,
-      amount: "₹ 50",
+      title: "Competitive Coding Contest",
+      description: "Solve problems within time limits and showcase your skills!",
+      participants: "1",
+      amount: "₹100",
+      prize: "Win exciting gadgets and prizes!",
+      venue: "Lab 1, IT Block",
       date: "March 11, 2025",
       time: "10:00 AM",
-      registrationLink: "https://forms.gle/w9fndi6fZCEHJ3An6"
+      registrationLink: "https://forms.gle/w9fndi6fZCEHJ3An6",
     },
-    
-    
     {
       imgSrc: "/ev3.png",
       title: "Debugging Challenge",
-      description: "Join our Bug Hunt to find and fix bugs in code under time constraints!",
+      description: "Find and fix bugs under time constraints!",
       participants: "2",
-      amount: "₹ 100/team",
+      amount: "₹100/team",
+      prize: "Win exciting gadgets and prizes!",
+      venue: "Lab 2, IT Block",
       date: "March 12, 2025",
       time: "10:00 AM",
-      registrationLink: "https://forms.gle/JWcpuqJ6fEw3kydH7"
+      registrationLink: "https://forms.gle/JWcpuqJ6fEw3kydH7",
     },
     {
       imgSrc: "/ev4.png",
       title: "Hackathon",
       description: "Create innovative websites in our fast-paced hackathon!",
-      participants: "2",
-      amount: "₹ 500/team",
+      participants: "5",
+      amount: "₹500/team",
+      prize: "Win a prize pool worth ₹12,000",
+      venue: "Hi-Tech Hall-2",
       date: "March 13, 2025",
       time: "10:00 AM",
-      registrationLink: "https://forms.gle/1wGL612kfSaMXmkP6"
+      registrationLink: "https://forms.gle/1wGL612kfSaMXmkP6",
     },
     {
       imgSrc: "/ev5.png",
       title: "Paper Presentation",
-      description: "Present your ideas and research to a knowledgeable audience in our paper presentation!",
+      description: "Present your ideas and research to a knowledgeable audience!",
       participants: "2-4",
-      amount: "₹ 200/team",
+      amount: "₹200/team",
+      prize: "₹4000",
+      venue: "Win exciting gadgets and prizes!",
       date: "March 14, 2025",
       time: "10:00 AM",
-      registrationLink: "https://forms.gle/bApaqaqwFDzAWuhq9"
-      }
-            ].map((event, index) => (
-    
-              <a
-              key={index}
-              href={event.registrationLink}
-              className="border-0 rounded-lg overflow-hidden relative hover:shadow-2xl transition-all duration-300 flex flex-col cursor-pointer hover:translate-z-4 mb-6"
-            >
-              <div className="w-full h-80 relative">
-                <img
-                  src={event.imgSrc}
-                  alt={event.title}
-                  className="w-full h-full object-contain"  
-                />
-        
-                <div className="absolute top-2 right-2 bg-white bg-opacity-90 p-2 text-sm text-black rounded-lg shadow-md">
-                  <p>{event.date}</p>
-                  <p>{event.time}</p>
-                </div>
-              </div>
-              <div className="p-4 flex flex-col justify-between flex-grow">
-                <h3 className={`font-semibold mb-2 text-black text-center ${isMobile ? 'text-sm' : 'text-lg'}`}>{event.title}</h3>
-                <p className="text-black text-sm mb-4 flex-grow">{event.description}</p>
-                <div className="flex justify-between items-center">
-                
-                  <div className="text-left text-black text-bold text-sm">
-                    <p>Max Participants: {event.participants}</p>
-                    <p>Amount: {event.amount}</p>
-                  </div>
-               
-                  <div className="block py-4 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-200">
-                    Register Now
-                  </div>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
+      registrationLink: "https://forms.gle/bApaqaqwFDzAWuhq9",
+    },
+  ];
 
-
-
-          <form
-            onSubmit={handleSubmit}
-            className={`bg-white bg-opacity-80 p-6 rounded-lg shadow-md transition-transform duration-300 hover:shadow-2xl ${isMobile ? 'text-xs' : 'text-base'}`}
-            style={{ transform: isLoading ? 'scale(0.98)' : 'scale(1)' }}
+  return (
+    <div className={`${inter.className} min-h-screen bg-black text-white p-4`}>
+      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+        {events.map((event, index) => (
+          <div
+            key={index}
+            className="relative border-2 border-red-600 rounded-lg overflow-hidden transition-all duration-500 transform 
+              hover:scale-105 hover:shadow-[0_0_20px_rgba(255,0,0,0.8)] cursor-pointer bg-gray-900 p-4"
+            onClick={() => setSelectedEvent(event)}
           >
-            <h3 className={`text-xl font-semibold mb-4 text-gray-900 ${isMobile ? 'text-lg' : 'text-2xl'}`}>
-              Raise Your Query
-            </h3>
-            <div className="mb-4">
-              <label htmlFor="username" className={`block ${isMobile ? 'text-sm' : 'text-lg'} font-medium text-gray-700 mb-2`}>
-                Name
-              </label>
-              <input
-                type="text"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                placeholder="Name"
-                className="w-full p-3 border rounded-lg bg-gray-100 bg-opacity-70 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            <div className="w-full aspect-[4/5] flex items-center justify-center">
+              <Image
+                src={event.imgSrc}
+                alt={event.title}
+                width={300}
+                height={375}
+                className="w-full h-full object-contain"
               />
             </div>
-            <div className="mb-6">
-              <label htmlFor="query" className={`block ${isMobile ? 'text-sm' : 'text-lg'} font-medium text-gray-700 mb-2`}>
-                Your Query
-              </label>
-              <textarea
-                id="query"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                required
-                placeholder="Type your query here..."
-                className="w-full p-3 border rounded-lg bg-gray-100 bg-opacity-70 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                rows={4}
-              />
-            </div>
-            <div className="flex items-center justify-between">
-              <button
-                type="submit"
-                disabled={isLoading}
-                className={`bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 ease-in-out ${isMobile ? 'text-sm' : 'text-lg'} ${
-                  isLoading ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-              >
-                {isLoading ? "Sending..." : "Send Message"}
+            <div className="p-4 text-center">
+              <h3 className="font-bold text-lg text-red-500">{event.title}</h3>
+              <p className="text-gray-300">{event.description}</p>
+              <p className="text-sm text-gray-400 mt-2">
+                {event.date} | {event.time}
+              </p>
+              <button className="mt-4 px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all">
+                Register Now
               </button>
-              {status && (
-                <p className={`text-${status === "Query Sent!" ? "green" : "red"}-500 text-sm`}>
-                  {status}
-                </p>
-              )}
             </div>
-          </form>
-        </div>
+          </div>
+        ))}
       </div>
-    );
+
+      {/* Event Modal */}
+      {selectedEvent && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 p-4">
+          <div className="bg-gray-900 p-6 rounded-lg shadow-lg max-w-lg w-full border border-red-600">
+            <h2 className="text-red-500 text-2xl font-bold">{selectedEvent.title}</h2>
+            <p className="text-gray-300 mt-2">{selectedEvent.description}</p>
+
+            <div className="text-sm text-gray-400 mt-4 space-y-2">
+              <p>
+                <strong>Date:</strong> {selectedEvent.date} | <strong>Time:</strong> {selectedEvent.time}
+              </p>
+              <p>
+                <strong>Participants:</strong> {selectedEvent.participants} | <strong>Fee:</strong> {selectedEvent.amount}
+              </p>
+              <p>
+                <strong>Prize:</strong> {selectedEvent.prize} | <strong>Venue:</strong> {selectedEvent.venue}
+              </p>
+            </div>
+
+            <div className="flex justify-between mt-6">
+              <button
+                className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all"
+                onClick={() => setSelectedEvent(null)}
+              >
+                Cancel
+              </button>
+              <a href={selectedEvent.registrationLink} target="_blank">
+                <button className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all">
+                  Register Here
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }

@@ -17,18 +17,18 @@ export function TypewriterEffectDemo() {
     },
     {
       text: "IGNITE",
-      className: "text-blue-700 dark:text-blue-700",
+      className: "text-blue-700 dark:text-red-700",
     },
     {
       text: "'25",
-      className: "text-blue-700 dark:text-blue-700",
+      className: "text-blue-700 dark:text-red-700",
     },
   ];
   return (
     <div className="flex flex-col items-center justify-center h-[20rem] ">
-      <p className="text-neutral-100 dark:text-neutral-50 text-bold text-base  mb-5">
+      {/* <p className="text-neutral-100 dark:text-neutral-50 text-bold text-base  mb-5">
       Innovate, Collaborate, Elevate.
-      </p>
+      </p> */}
       <TypewriterEffect words={words} />
       
         
