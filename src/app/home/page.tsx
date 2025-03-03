@@ -21,7 +21,7 @@ export default function Home() {
   const events = [
     {
       imgSrc: "/ev1.png",
-      title: "A workshop on UI/UX Design",
+      title: "A workshop on AR/VR Design",
       description: "Master UI/UX design in our hands-on workshop!",
       participants: "1",
       amount: "₹100",
