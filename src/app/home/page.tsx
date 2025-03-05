@@ -22,7 +22,7 @@ export default function Home() {
     {
       imgSrc: "/ev1.png",
       title: "A workshop on AR/VR Design",
-      description: "Master UI/UX design in our hands-on workshop!",
+      description: "Master AR/VR design in our hands-on workshop!",
       participants: "1",
       amount: "₹100",
       prize: "nil",
