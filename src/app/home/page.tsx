@@ -58,7 +58,7 @@ export default function Home() {
     {
       imgSrc: "/ev4.png",
       title: "Hackathon",
-      description: "Create innovative websites in our fast-paced hackathon!",
+      description: "Problem statement will be Given prior!!",
       participants: "5",
       amount: "₹500/team",
       prize: "Win a prize pool worth ₹12,000",
