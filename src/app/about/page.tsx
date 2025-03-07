@@ -130,7 +130,7 @@ export default function About() {
 
   return (
     <div
-      className={`${inter.className} text-red-600 font-bold hover:shadow-2xl hover:border-red-800 transition-all duration-600 shadow-lg rounded-lg`}
+      className={`${inter.className} text-white font-bold hover:shadow-2xl hover:border-red-800 transition-all duration-600 shadow-lg rounded-lg`}
       style={{
         backgroundImage: isMobile ? "none" : "url('/homecover.gif')", // Conditional background image
         backgroundSize: 'cover',
@@ -169,7 +169,7 @@ export default function About() {
 
        
         <div className={`mb-8 p-6 shadow-lg rounded-lg border-0 bg-transparent hover:shadow-2xl transition-all duration-300 ${isMobile ? 'text-sm' : 'text-lg'}`}>
-          <p className={`mb-4 text-red-600 text-justify ${isMobile ? 'text-xs' : 'text-lg'}`}>
+          <p className={`mb-4 text-white text-justify ${isMobile ? 'text-xs' : 'text-lg'}`}>
             Welcome to TechSaavy, the official student-led club of the{' '}
             <span className={`font-bold text-blue-800 ${isMobile ? 'text-sm' : 'text-xl'}`}>
               Department of Information Technology
@@ -177,7 +177,7 @@ export default function About() {
             at Easwari Engineering College, Ramapuram, Chennai. Founded in 2022 by Mr. Sanjay R., TechSaavy is dedicated to bridging the gap between theoretical knowledge and practical application in the tech field. Under the current leadership of Mr. Hari Aditya, our club continues to thrive and grow, organizing a variety of events such as webinars, workshops, and doubt-clearing sessions. Our mission is to create a vibrant community where technology enthusiasts can come together to learn, innovate, and excel.
           </p>
 
-          <p className={`mb-4 text-red-600 text-justify ${isMobile ? 'text-xs' : 'text-lg'}`}>
+          <p className={`mb-4 text-white text-justify ${isMobile ? 'text-xs' : 'text-lg'}`}>
             Managed by a passionate team of students and supported by our staff coordinator, Dr. K. Sundar, Assistant Professor of Information Technology, TechSaavy provides a collaborative platform for all members. Our department’s Head of Department, Dr. N. Ananthi, plays a pivotal role in guiding and providing the necessary resources to help the club flourish. Together, we are committed to empowering our members and fostering an environment where everyone has the opportunity to contribute and succeed.
           </p>
         </div>
