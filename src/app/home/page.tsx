@@ -55,7 +55,7 @@ export default function Home() {
       time: "10:00 AM",
       registrationLink: "https://forms.gle/JWcpuqJ6fEw3kydH7",
     },
-    {
+    /*{
       imgSrc: "/ev4.png",
       title: "Hackathon",
       description: "Problem statement will be Given prior!!",
@@ -66,7 +66,7 @@ export default function Home() {
       date: "March 13, 2025",
       time: "10:00 AM",
       registrationLink: "https://forms.gle/1wGL612kfSaMXmkP6",
-    },
+    },*/
     {
       imgSrc: "/ev5.png",
       title: "Paper Presentation",
