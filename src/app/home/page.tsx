@@ -140,7 +140,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="flex justify-between mt-6">
+           <div className="flex justify-between mt-6">
   <button
     className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all"
     onClick={() => setSelectedEvent(null)}
