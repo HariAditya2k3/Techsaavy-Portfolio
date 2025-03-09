@@ -58,14 +58,15 @@ export default function Home() {
     {
       imgSrc: "/ev4.png",
       title: "Hackathon",
-      description: "Problem statement will be Given prior!!",
-      participants: "5",
-      amount: "₹500/team",
-      prize: "Win a prize pool worth ₹12,000",
+      description: "Registrations Closed",
+      participants: "—",
+      amount: "—",
+      prize: "—",
       venue: "Hi-Tech Hall-2",
       date: "March 13, 2025",
       time: "10:00 AM",
-      registrationLink: "https://forms.gle/1wGL612kfSaMXmkP6",
+      registrationLink: null, // Remove link
+      isClosed: true, // Mark as closed
     },
     {
       imgSrc: "/ev5.png",
@@ -73,7 +74,7 @@ export default function Home() {
       description: "Present your ideas and research to a knowledgeable audience!",
       participants: "2-4",
       amount: "₹200/team",
-      prize: "Win exciting gadgets and prizes!",
+      prize: "Win a cash prize of worth ₹ 2000 for winner-up",
       venue: "Hi-Tech Hall-2",
       date: "March 14, 2025",
       time: "10:00 AM",
@@ -87,9 +88,10 @@ export default function Home() {
         {events.map((event, index) => (
           <div
             key={index}
-            className="relative border-2 border-red-600 rounded-lg overflow-hidden transition-all duration-500 transform 
-              hover:scale-105 hover:shadow-[0_0_20px_rgba(255,0,0,0.8)] cursor-pointer bg-gray-900 p-4"
-            onClick={() => setSelectedEvent(event)}
+            className={`relative border-2 border-red-600 rounded-lg overflow-hidden transition-all duration-500 transform 
+              hover:scale-105 hover:shadow-[0_0_20px_rgba(255,0,0,0.8)] cursor-pointer bg-gray-900 p-4 
+              ${event.isClosed ? "opacity-50 cursor-not-allowed" : ""}`} // Apply fade effect
+            onClick={() => !event.isClosed && setSelectedEvent(event)} // Prevent modal opening for closed event
           >
             <div className="w-full aspect-[4/5] flex items-center justify-center">
               <Image
@@ -106,8 +108,13 @@ export default function Home() {
               <p className="text-sm text-gray-400 mt-2">
                 {event.date} | {event.time}
               </p>
-              <button className="mt-4 px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all">
-                Register Now
+              <button
+                className={`mt-4 px-6 py-2 text-white rounded-lg transition-all ${
+                  event.isClosed ? "bg-gray-500 cursor-not-allowed opacity-50" : "bg-red-600 hover:bg-red-700"
+                }`}
+                disabled={event.isClosed} // Disable button for closed event
+              >
+                {event.isClosed ? "Registrations Closed" : "Register Now"}
               </button>
             </div>
           </div>
@@ -134,18 +141,26 @@ export default function Home() {
             </div>
 
             <div className="flex justify-between mt-6">
-              <button
-                className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all"
-                onClick={() => setSelectedEvent(null)}
-              >
-                Cancel
-              </button>
-              <a href={selectedEvent.registrationLink} target="_blank">
-                <button className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all">
-                  Register Here
-                </button>
-              </a>
-            </div>
+  <button
+    className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all"
+    onClick={() => setSelectedEvent(null)}
+  >
+    Cancel
+  </button>
+
+  {selectedEvent?.registrationLink ? (
+    <a href={selectedEvent.registrationLink} target="_blank" rel="noopener noreferrer">
+      <button className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all">
+        Register Here
+      </button>
+    </a>
+  ) : (
+    <button className="px-6 py-2 bg-gray-500 text-white rounded-lg cursor-not-allowed opacity-50" disabled>
+      Registrations Closed
+    </button>
+  )}
+</div>
+
           </div>
         </div>
       )}
