@@ -22,7 +22,7 @@ export default function Home() {
     {
       imgSrc: "/ev1.png",
       title: "A workshop on AR/VR Design",
-      description: "Master AR/VR design in our hands-on workshop!",
+      description: "Registrations Closed",
       participants: "1",
       amount: "₹100",
       prize: "nil",
@@ -35,7 +35,7 @@ export default function Home() {
     {
       imgSrc: "/ev2.png",
       title: "Competitive Coding Contest",
-      description: "Solve problems within time limits and showcase your skills!",
+      description: "Registrations Closed",
       participants: "1",
       amount: "₹100",
       prize: "Win exciting gadgets and prizes!",
@@ -48,7 +48,7 @@ export default function Home() {
     {
       imgSrc: "/ev3.png",
       title: "CTRL+FIX",
-      description: "Find and fix bugs under time constraints!",
+      description: "Registrations Closed",
       participants: "2",
       amount: "₹100/team",
       prize: "Win exciting gadgets and prizes!",
