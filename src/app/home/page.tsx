@@ -29,7 +29,8 @@ export default function Home() {
       venue: "TRP Auditorium Hall",
       date: "March 10, 2025",
       time: "9:00 AM",
-      registrationLink: "https://forms.gle/JLFaHyPk8cy8ETt88",
+      registrationLink: null,
+      isClosed: true,
     },
     {
       imgSrc: "/ev2.png",
@@ -41,7 +42,8 @@ export default function Home() {
       venue: "Lab 1, IT Block",
       date: "March 11, 2025",
       time: "10:00 AM",
-      registrationLink: "https://forms.gle/w9fndi6fZCEHJ3An6",
+      registrationLink: null,
+      isClosed: true,
     },
     {
       imgSrc: "/ev3.png",
@@ -53,7 +55,8 @@ export default function Home() {
       venue: "Lab 2, IT Block",
       date: "March 12, 2025",
       time: "10:00 AM",
-      registrationLink: "https://forms.gle/JWcpuqJ6fEw3kydH7",
+      registrationLink: null,
+      isClosed: true,
     },
     {
       imgSrc: "/ev4.png",
