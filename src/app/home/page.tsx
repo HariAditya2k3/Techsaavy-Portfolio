@@ -54,8 +54,7 @@ export default function Home() {
       venue: "Lab 1, IT Block",
       date: "March 11, 2025",
       time: "10:00 AM",
-      registrationLink: null,
-      isClosed: true,
+      registrationLink: "https://docs.google.com/forms/d/1IYCsxfQ7E9ENNt0HC4FAy9YChl5B-NG2P0fN4RU35Og/edit",
     },
     {
       imgSrc: "/ev3.png",
@@ -67,8 +66,7 @@ export default function Home() {
       venue: "Lab 2, IT Block",
       date: "March 12, 2025",
       time: "10:00 AM",
-      registrationLink: null,
-      isClosed: true,
+      registrationLink: "https://docs.google.com/forms/d/1OdOb0WwveP-ZHVg4wolw8cezO02q__NswGO04iJ84X4/edit",
     },
     {
       imgSrc: "/ev4.png",
