@@ -20,6 +20,18 @@ export default function Home() {
 
   const events = [
     {
+      imgSrc: "/ev5.png",
+      title: "Paper Presentation",
+      description: "Present your ideas and research to a knowledgeable audience!",
+      participants: "2-4",
+      amount: "₹200/team",
+      prize: "Win a cash prize of worth ₹ 2000 for winner-up",
+      venue: "Hi-Tech Hall-2",
+      date: "March 14, 2025",
+      time: "10:00 AM",
+      registrationLink: "https://forms.gle/bApaqaqwFDzAWuhq9",
+    },
+    {
       imgSrc: "/ev1.png",
       title: "A workshop on AR/VR Design",
       description: "Registrations Closed",
@@ -70,19 +82,7 @@ export default function Home() {
       time: "10:00 AM",
       registrationLink: null, // Remove link
       isClosed: true, // Mark as closed
-    },
-    {
-      imgSrc: "/ev5.png",
-      title: "Paper Presentation",
-      description: "Present your ideas and research to a knowledgeable audience!",
-      participants: "2-4",
-      amount: "₹200/team",
-      prize: "Win a cash prize of worth ₹ 2000 for winner-up",
-      venue: "Hi-Tech Hall-2",
-      date: "March 14, 2025",
-      time: "10:00 AM",
-      registrationLink: "https://forms.gle/bApaqaqwFDzAWuhq9",
-    },
+    },  
   ];
 
   return (
