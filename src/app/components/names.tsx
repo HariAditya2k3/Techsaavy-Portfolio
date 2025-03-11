@@ -75,7 +75,7 @@ const people = [
   },
   {
     id: 12,
-    name: "GOWTHAM M",
+    name: "VIBU SREE CHARAN M S",
     designation: "Event Head",
     image:
       "/Vibhu - Event Lead.jpg",
