@@ -75,6 +75,14 @@ const people = [
   },
   {
     id: 12,
+    name: "GOWTHAM M",
+    designation: "Event Head",
+    image:
+      "/Vibhu - Event Lead.jpg",
+  
+  },
+  {
+    id: 13,
     name: "DIYA U",
     designation: "INNOVATIVE LEAD",
     image:
