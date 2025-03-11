@@ -20,22 +20,36 @@ export default function Home() {
 
   const events = [
     {
+      imgSrc: "/ev5.png",
+      title: "Paper Presentation",
+      description: "Present your ideas and research to a knowledgeable audience!",
+      participants: "2-4",
+      amount: "₹200/team",
+      prize: "Win a cash prize of worth ₹ 2000 for winner-up",
+      venue: "Hi-Tech Hall-2",
+      date: "March 14, 2025",
+      time: "10:00 AM",
+      registrationLink: "https://forms.gle/bApaqaqwFDzAWuhq9",
+    },
+    {
       imgSrc: "/ev1.png",
       title: "A workshop on AR/VR Design",
-      description: "Master AR/VR design in our hands-on workshop!",
+      description: "Registrations Closed",
       participants: "1",
       amount: "₹100",
       prize: "nil",
       venue: "TRP Auditorium Hall",
       date: "March 10, 2025",
       time: "9:00 AM",
-      registrationLink: null, // Remove link
-      isClosed: true, // Mark as closed
+
+
+      registrationLink: null,
+      isClosed: true,
     },
     {
       imgSrc: "/ev2.png",
       title: "Competitive Coding Contest",
-      description: "Solve problems within time limits and showcase your skills!",
+      description: "Registrations Closed",
       participants: "1",
       amount: "₹100",
       prize: "Win exciting gadgets and prizes!",
@@ -44,11 +58,12 @@ export default function Home() {
       time: "10:00 AM",
       registrationLink: null, // Remove link
       isClosed: true, // Mark as closed
+
     },
     {
       imgSrc: "/ev3.png",
       title: "CTRL+FIX",
-      description: "Find and fix bugs under time constraints!",
+      description: "Registrations Closed",
       participants: "2",
       amount: "₹100/team",
       prize: "Win exciting gadgets and prizes!",
